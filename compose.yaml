@@ -1,8 +1,0 @@
-services:
-  demopage:
-    image: demopage
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    ports:
-      - 5000:5000
