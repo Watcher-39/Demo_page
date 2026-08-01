@@ -1,0 +1,306 @@
+.home {
+    background-color: #373434;
+    background-size: cover;
+}
+
+.welcome {
+    color: black;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 82px;
+    margin-bottom: 45px;
+}
+
+.menu {
+    font-size: 2em;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu-screen {
+    text-align: center;
+    font-size: 3em;
+    display: flex;
+    flex-direction: column;
+    background-color: #b6b2b2;
+}
+
+a {
+    text-decoration: none;
+    color: #73a954;
+    margin: 0 5px;
+}
+
+
+.close-btn {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.card {
+    width: 300px;
+    height: 450px;
+    border: 3px solid #222;
+    border-radius: 15px;
+    background-color: #808080;
+    align-content: center;
+    position: relative;
+    justify-self: center;
+    margin-top: 80px;
+}
+
+figure {
+    border: 2px dashed black;
+    border-radius: 6px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.product-img {
+    height: 100%;
+    width: 100%;
+}
+
+figcaption {
+    background-color: #808080;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.price {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+    .price h3 {
+        background-color: #808080;
+    }
+
+.qty {
+    width: 100px;
+    height: 45px;
+    margin-top: -5px;
+    float: right;
+    display: flex;
+    margin-top: -45px;
+    margin-right: 10px;
+    align-items: center;
+    background-color: #808080;
+}
+
+.qty input {
+    width: 50px;
+    margin-right: 5px;
+    border-radius: 6px; 
+}
+
+.qty h4 {
+    background-color: #808080;
+}
+
+.number {
+    width: 40px;
+    height: 40px;
+    font-size: 2em;
+    color: white;
+}
+
+.subtotal {
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+    float: right;
+    display: flex;
+    align-items: center;
+    background-color: #808080;
+    border: 1px solid #222;
+    border-radius: 6px;
+}
+
+.subtotal h5 {
+    background-color: #808080;
+    margin: 2cpx;
+}
+
+.add-to-cart {
+    margin-top: 60px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    position: center;
+    background-color: #808080;
+    border-radius: 6px;
+    border: 1px solid #222;
+}
+
+.footer {
+    height: 100px;
+    display: flex;
+    margin-top: 55px;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 3px solid black;
+}
+
+.Links {
+    padding: 0 20px;
+}
+
+h3 {
+    margin: 10px;
+}
+
+.second {
+    background-color: #373434;
+}
+
+form {
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr;
+    font-size: 15px;
+}
+
+label {
+    padding: 8px;
+    padding-left: 5px;
+}
+
+input {
+    padding: 10px;
+    width: 35%;
+    border-radius: 10px;
+}
+
+.desc {
+    width: 75%;
+    height: 125px;
+    padding: 15px;
+    vertical-align: top;
+    border-radius: 10px;
+}
+
+.send {
+    width: 125px;
+    height: 50px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding-left: 45px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.third {
+    background-color: #808080;
+    background-size: cover;
+    height: 665px;
+    width: 98%;
+    position: fixed;
+}
+
+.title {
+    margin: 10px 20px;
+}
+
+figure {
+    margin: 0;
+    padding: 10px;
+}
+
+.shop {
+    width: 75%;
+    padding: 2px;
+    margin: 80px;
+    margin-left: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shop img {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-self: center;
+}
+
+.bio-desc {
+    padding: 10px;
+}
+
+.employee {
+    margin-top: -30px;
+    margin-left: 100px;
+}
+
+.emp-img {
+    width: 150px;
+}
+
+.login-form {
+    width: 75%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    background-color: #373434;
+}
+
+.login-form input {
+    width: 125px;
+    margin: 5px;
+}
+
+.login-form button {
+    height: 35px;
+    margin: 10px;
+}
+
+.dashboard {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+}
+
+.admin-table {
+    width: 95%;
+    margin: 0 0 0 20px;
+    padding: 10px;
+    background-color: #808080;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.table-items {
+    width: 95%;
+    margin: 0 0 0 20px;
+    padding-left: 15px;
+    background-color: #b6b2b2;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.add-product {
+    width: 50px;
+    height: 35px;
+    margin: 20px;
+}
+
+.update {
+    width: 65px;
+    height: 35px;
+    margin: 20px 20px 0 0;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+}
