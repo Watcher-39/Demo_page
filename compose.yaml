@@ -1,0 +1,6 @@
+services:
+  demopage:
+    image: demopage
+    build:
+      context: .
+      dockerfile: ./Dockerfile
