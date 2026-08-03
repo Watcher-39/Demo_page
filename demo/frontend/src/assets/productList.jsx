@@ -7,7 +7,7 @@ const ProductList = ({ products, updateProduct, updateCallback }) => {
             const options = {
                 method: "DELETE"
             }
-            const response = await fetch(`https://0.0.0.0:5000/delete_product/${id}`, options)
+            const response = await fetch(`http://127.0.0.1:5000/delete_product/${id}`, options)
             if (response.status === 200) {
                 updateCallback()
             } else {
