@@ -7,7 +7,7 @@ const AdminList = ({ admins, updateAdmin, updateCallback }) => {
             const options = {
                 method: "DELETE"
             }
-            const response = await fetch(`http://127.0.0.1:5000/delete_admin/${id}`, options)
+            const response = await fetch(`https://0.0.0.0:5000/delete_admin/${id}`, options)
             if (response.status === 200) {
                 updateCallback()
             } else {
