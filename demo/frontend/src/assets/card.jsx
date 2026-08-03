@@ -18,7 +18,7 @@ const Card = () => {
         <>
             <div className="card">
                 <figure>
-                    <img className="product-img" src="../public/product-img.avif" alt="a random product or service" />
+                    <img className="product-img" src="/product-img.avif" alt="a random product or service" />
                     <figcaption>{products[0]?.description}</figcaption>
                 </figure>
 
