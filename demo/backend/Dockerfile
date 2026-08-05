@@ -9,8 +9,10 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+ENTRYPOINT ["python", "main.py"]
+
 ENV FLASK_ENV=development
 
 EXPOSE 5000
 
-CMD ["flask", "--app", "config", "run", "--host=0.0.0.0"]
+CMD ["gunicorn", "--app", "config", "run", "--host=0.0.0.0"]
