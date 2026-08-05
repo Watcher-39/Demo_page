@@ -15,4 +15,4 @@ ENV FLASK_ENV=development
 
 EXPOSE 5000
 
-CMD ["gunicorn", "--app", "config", "run", "--host=0.0.0.0"]
+CMD ["gunicorn", "--config", "gunicorn.conf.py"]
