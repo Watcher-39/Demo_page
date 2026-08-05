@@ -13,7 +13,7 @@ const AdminForm = ({ existingAdmin = {}, updateCallback = () => { } }) => {
             name,
             password,
         }
-        const url = "https://0.0.0.0:5000/" + (updating ? `update_admin/${existingAdmin.id}` : "create_admin")
+        const url = "http://localhost:5000/" + (updating ? `update_admin/${existingAdmin.id}` : "create_admin")
         const options = {
             method: updating ? "PATCH" : "POST",
             headers: {

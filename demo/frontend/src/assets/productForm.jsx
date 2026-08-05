@@ -15,7 +15,7 @@ const ProductForm = ({ existingProduct = {}, updateCallback = () => { } }) => {
             price,
             description
         }
-        const url = "https://0.0.0.0:5000/" + (updating ? `update_product/${existingProduct.id}` : "create_product")
+        const url = "http://localhost:5000/" + (updating ? `update_product/${existingProduct.id}` : "create_product")
         const options = {
             method: updating ? "PATCH" : "POST",
             headers: {
