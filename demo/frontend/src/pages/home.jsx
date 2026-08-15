@@ -54,12 +54,13 @@ const Home = () => {
                     <h1 className="intro">Welcome To</h1>
                     <h3>"Your Name Here"</h3>
                     <h6>How can I help you today?</h6>
-                    <Link to="/first">1. First Category</Link>
-                    <br />
-                    <Link to="/second">2. Second Category</Link>
-                    <br />
-                    <Link to="/third">3. Third Category</Link>
-                    <br />
+
+<select>
+        <option><Link to="/first">First Category</Link></option>
+    <option><Link to="/second">Second Category</Link></option>
+    <option><Link to="/third">Third Category</Link></option>
+
+</select>
                 </div>
                 <Footer />
             </div>
