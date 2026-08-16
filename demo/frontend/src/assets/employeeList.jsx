@@ -1,13 +1,13 @@
 import React from "react"
 
-const AdminList = ({ admins, updateAdmin, updateCallback }) => {
+const EmployeesList = ({ employees, updateEmployees, updateCallback }) => {
 
     const onDelete = async (id) => {
         try {
             const options = {
                 method: "DELETE"
             }
-            const response = await fetch(`http://localhost:5000/delete_admin/${id}`, options)
+            const response = await fetch(`http://localhost:5000/delete_employee/${id}`, options)
             if (response.status === 200) {
                 updateCallback()
             } else {
@@ -19,7 +19,7 @@ const AdminList = ({ admins, updateAdmin, updateCallback }) => {
     }
 
     return <div>
-        <h2>Admins</h2>
+        <h2>Employees</h2>
         <table>
             <thead>
                 <tr>
@@ -30,13 +30,13 @@ const AdminList = ({ admins, updateAdmin, updateCallback }) => {
                 </tr>
             </thead>
             <tbody>
-                {admins.map((admin) => (
-                    <tr key={admin.id}>
-                        <td>{admin.name}</td>
-                        <td>{admin.phone}</td>
+                {employees.map((employee) => (
+                    <tr key={employee.id}>
+                        <td>{employee.name}</td>
+                        <td>{employee.phone}</td>
                         <td>
-                            <button onClick={() => updateAdmin(admin)}>Update</button>
-                            <button onClick={() => onDelete(admin.id)} >Delete</button>
+                            <button onClick={() => updateAdmin(employee)}>Update</button>
+                            <button onClick={() => onDelete(employee.id)} >Delete</button>
                         </td>
                     </tr>
                 ))}
@@ -45,4 +45,4 @@ const AdminList = ({ admins, updateAdmin, updateCallback }) => {
     </div>
 }
 
-export default AdminList
+export default EmployeesList

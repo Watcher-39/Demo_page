@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-const AdminForm = ({ existingAdmin = {}, updateCallback = () => { } }) => {
-    const [name, setName] = useState(existingAdmin.name || "");
-    const [password, setPassword] = useState(existingAdmin.password || "");
-    const [phone, setPhone] = useState(existingAdmin.phone || "");
+const EmployeeForm = ({ existingEmployee = {}, updateCallback = () => { } }) => {
+    const [name, setName] = useState(existingEmployee.name || "");
+    const [password, setPassword] = useState(existingEmployee.password || "");
+    const [phone, setPhone] = useState(existingEmployee.phone || "");
 
-    const updating = Object.entries(existingAdmin).length !== 0
+    const updating = Object.entries(existingEmployee).length !== 0
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -15,7 +15,7 @@ const AdminForm = ({ existingAdmin = {}, updateCallback = () => { } }) => {
             password,
             phone,
         }
-        const url = "http://localhost:5000/" + (updating ? `update_admin/${existingAdmin.id}` : "create_admin")
+        const url = "http://localhost:5000/" + (updating ? `update_employee/${existingEmployee.id}` : "create_employee")
         const options = {
             method: updating ? "PATCH" : "POST",
             headers: {
@@ -64,4 +64,4 @@ const AdminForm = ({ existingAdmin = {}, updateCallback = () => { } }) => {
     </form>
 }
 
-export default AdminForm
+export default EmployeeForm

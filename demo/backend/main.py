@@ -1,7 +1,8 @@
 from flask import request, jsonify
 from config import app, db
-from models import Admin, Product
+from models import Admin, Product, Employee
 
+## -------------Admin paths-------------
 @app.route("/admins", methods=["GET"])
 def get_admins():
     admins = Admin.query.all()
@@ -12,12 +13,13 @@ def get_admins():
 def create_admin():
     name = request.json.get("name")
     password = request.json.get("password")
+    phone = request.json.get("phone")
 
-    if not name or not password:
-        return jsonify({"message": "You must include a name and password"}), 400
+    if not name or not password or not phone:
+        return jsonify({"message": "You must include a name, password and phone"}), 400
 
     
-    new_admin = Admin(name=name, password=password)
+    new_admin = Admin(name=name, password=password, phone=phone)
     try:
         db.session.add(new_admin)
         db.session.commit()
@@ -53,6 +55,60 @@ def delete_admin(admin_id):
 
     return jsonify({"message": "Admin deleted!"}), 200
 
+## ---------Employee paths---------------
+@app.route("/employees", methods=["GET"])
+def get_employees():
+    employees = Employee.query.all()
+    json_employee = list(map(lambda x: x.to_json(), employees))
+    return jsonify({"employee": json_employee})
+
+@app.route("/create_employee", methods=["POST"])
+def create_employee():
+    name = request.json.get("name")
+    password = request.json.get("password")
+    phone = request.json.get("phone")
+
+    if not name or not password or not phone:
+        return jsonify({"message": "You must include a name, password and phone"}), 400
+
+    
+    new_employee = Employee(name=name, password=password, phone=phone)
+    try:
+        db.session.add(new_employee)
+        db.session.commit()
+    except Exception as e:
+        return jsonify({"message": str(e)}), 400
+
+    return jsonify({"message": "Employee created"}), 201
+
+@app.route("/update_employee/<int:employee_id>", methods=["PATCH"])
+def update_employee(employee_id):
+    employee = Employee.query.get(employee_id)
+
+    if not employee:
+        return jsonify({"message": "Employee not found"}), 404
+
+    data = request.json
+    employee.name = data.get("name", employee.name)
+    employee.password = data.get("password", employee.password)
+
+    db.session.commit()
+
+    return jsonify({"message": "Employee updated."}), 200
+
+@app.route("/delete_employee/<int:employee_id>", methods=["DELETE"])
+def delete_employee(employee_id):
+    employee = Employee.query.get(employee_id)
+
+    if not employee:
+        return jsonify({"message": "Employee not found."}), 404
+
+    db.session.delete(employee)
+    db.session.commit()
+
+    return jsonify({"message": "Employee deleted!"}), 200
+
+## ------Products paths----------
 @app.route("/products", methods=["GET"])
 def get_products():
     products = Product.query.all()

@@ -1,22 +1,27 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useState, useEffect } from "react";
 import ProductList from "../assets/productList";
-import AdminList from "../assets/adminList";
 import ProductForm from "../assets/productForm";
-import AdminForm from "../assets/adminForm";
+import AdminList from "../assets/adminList";
+import EmployeeList from "../assets/employeeList";
+import EmployeeForm from "../assets/employeeForm";
 import "../App.css";
 
 function Dash() {
     const [products, setProducts] = useState([]);
     const [admins, setAdmins] = useState([]);
+    const [employees, setEmployees] = useState([]);
     const [isProductModalOpen, setIsProductModalOpen] = useState(false);
     const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
+    const [isEmployeeModalOpen, setIsEmployeeModalOpen] = useState(false);
     const [currentProduct, setCurrentProduct] = useState({});
     const [currentAdmin, setCurrentAdmin] = useState({});
+    const [currentEmployee, setCurrentEmployee] = useState({});
 
     useEffect(() => {
         fetchProducts();
         fetchAdmins();
+        fetchEmployees();
     }, []);
 
     const fetchProducts = async () => {
@@ -33,11 +38,21 @@ function Dash() {
         setAdmins(data.admins);
     };
 
+    const fetchEmployees = async () => {
+        const response = await fetch("http://localhost:5000/employees");
+        const data = await response.json();
+        setEmployees(data.employees);
+    
+        setEmployees(data.employees);
+    };
+
     const closeModal = () => {
         setIsProductModalOpen(false);
         setIsAdminModalOpen(false);
+        setIsEmployeeModalOpen(false);
         setCurrentProduct({});
         setCurrentAdmin({});
+        setCurrentEmployee({});
     };
 
     const openCreateProductModal = () => {
@@ -46,6 +61,9 @@ function Dash() {
 
     const openCreateAdminModal = () => {
         if (!isAdminModalOpen) setIsAdminModalOpen(true);
+    };
+    const openCreateEmployeeModal = () => {
+        if (!isEmployeeModalOpen) setIsEmployeeModalOpen(true);
     };
 
     const openEditProductModal = (product) => {
@@ -60,10 +78,17 @@ function Dash() {
         setIsAdminModalOpen(true);
     };
 
+    const openEditEmployeeModal = (employee) => {
+        if (isEmployeeModalOpen) return;
+        setCurrentEmployee(employee);
+        setIsEmployeeModalOpen(true);
+    };
+
     const onUpdate = () => {
         closeModal();
         fetchProducts();
         fetchAdmins();
+        fetchEmployees();
     };
 
     return (
@@ -95,6 +120,14 @@ function Dash() {
                 updateCallback={onUpdate}
             />
             <button onClick={openCreateAdminModal}>Create New Admin</button>
+
+            <EmployeeList
+                employees={employees}
+                updateEmployee={openEditEmployeeModal}
+                updateCallback={onUpdate}
+            />
+            <button onClick={openCreateEmployeeModal}>Create New Employee</button>
+
             {isAdminModalOpen && (
                 <div className="modal">
                     <div className="modal-content">
