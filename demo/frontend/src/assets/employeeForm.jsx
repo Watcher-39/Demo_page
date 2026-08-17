@@ -45,7 +45,7 @@ const EmployeeForm = ({ existingEmployee = {}, updateCallback = () => { } }) => 
         <div>
             <label htmlFor="phone">Phone Number:</label>
             <input
-                type="text"
+                type="phone"
                 id="phone"
                 value={phone}
                 onChange={(e) => setName(e.target.value)}>
