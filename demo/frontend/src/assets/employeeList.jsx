@@ -35,7 +35,7 @@ const EmployeesList = ({ employees, updateEmployees, updateCallback }) => {
                         <td>{employee.name}</td>
                         <td>{employee.phone}</td>
                         <td>
-                            <button onClick={() => updateAdmin(employee)}>Update</button>
+                            <button onClick={() => updateEmployee(employee)}>Update</button>
                             <button onClick={() => onDelete(employee.id)} >Delete</button>
                         </td>
                     </tr>

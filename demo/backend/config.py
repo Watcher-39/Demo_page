@@ -15,5 +15,3 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 
 db = SQLAlchemy(app)
-
-import main

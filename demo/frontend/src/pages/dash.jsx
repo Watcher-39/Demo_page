@@ -34,15 +34,11 @@ function Dash() {
         const response = await fetch("http://localhost:5000/admins");
         const data = await response.json();
         setAdmins(data.admins);
-    
-        setAdmins(data.admins);
     };
 
     const fetchEmployees = async () => {
         const response = await fetch("http://localhost:5000/employees");
         const data = await response.json();
-        setEmployees(data.employees);
-    
         setEmployees(data.employees);
     };
 
@@ -62,6 +58,7 @@ function Dash() {
     const openCreateAdminModal = () => {
         if (!isAdminModalOpen) setIsAdminModalOpen(true);
     };
+
     const openCreateEmployeeModal = () => {
         if (!isEmployeeModalOpen) setIsEmployeeModalOpen(true);
     };
@@ -94,6 +91,7 @@ function Dash() {
     return (
         <>    
             <a className="back" href="/">&lt;Back</a>
+
             <ProductList
                 products={products}
                 updateProduct={openEditProductModal}
@@ -128,14 +126,14 @@ function Dash() {
             />
             <button onClick={openCreateEmployeeModal}>Create New Employee</button>
 
-            {isAdminModalOpen && (
+            {isEmployeeModalOpen && (
                 <div className="modal">
                     <div className="modal-content">
                         <span className="close" onClick={closeModal}>
                             &times;
                         </span>
-                        <AdminForm
-                            existingAdmin={currentAdmin}
+                        <EmployeeForm
+                            existingEmployee={currentEmployee}
                             updateCallback={onUpdate}
                         />
                     </div>
@@ -145,4 +143,4 @@ function Dash() {
     );
 }
 
-    export default Dash;
+export default Dash;
