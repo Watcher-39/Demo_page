@@ -60,6 +60,15 @@ const ProductForm = ({ existingProduct = {}, updateCallback = () => { } }) => {
                 onChange={(e) => setDescription(e.target.value)}>
             </input>
         </div>
+        <div>
+            <label htmlFor="category">Category:</label>
+            <input
+                type="text"
+                id="category"
+                value={category}
+                onChange={(e) => setDescription(e.target.value)}>
+            </input>
+        </div>
         <button type="submit">{updating ? "Update" : "Create"}</button>
     </form>
 }
