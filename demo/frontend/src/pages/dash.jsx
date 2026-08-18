@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import ProductList from "../assets/productList";
 import ProductForm from "../assets/productForm";
 import AdminList from "../assets/adminList";
+import AdminForm from "../assets/adminForm";
 import EmployeeList from "../assets/employeeList";
 import EmployeeForm from "../assets/employeeForm";
 import "../App.css";
@@ -118,6 +119,19 @@ function Dash() {
                 updateCallback={onUpdate}
             />
             <button onClick={openCreateAdminModal}>Create New Admin</button>
+            {isAdminModalOpen && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={closeModal}>
+                            &times;
+                        </span>
+                        <AdminForm
+                            existingAdmin={currentAdmin}
+                            updateCallback={onUpdate}
+                        />
+                    </div>
+                </div>
+            )}
 
             <EmployeeList
                 employees={employees}

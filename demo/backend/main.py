@@ -60,7 +60,7 @@ def delete_admin(admin_id):
 def get_employees():
     employees = Employee.query.all()
     json_employee = list(map(lambda x: x.to_json(), employees))
-    return jsonify({"employee": json_employee})
+    return jsonify({"employees": json_employee})
 
 @app.route("/create_employee", methods=["POST"])
 def create_employee():
@@ -120,11 +120,12 @@ def create_product():
     name = request.json.get("name")
     price = request.json.get("price")
     description = request.json.get("description")
+    category = request.json.get("category")
 
-    if not name or not price:
-        return jsonify({"message": "You must include a name and price"}), 400
+    if not name or not price or not category:
+        return jsonify({"message": "You must include a name, price, and category"}), 400
 
-    new_product = Product(name=name, price=price, description=description)
+    new_product = Product(name=name, price=price, description=description, category=category)
     try:
         db.session.add(new_product)
         db.session.commit()
@@ -144,10 +145,11 @@ def update_product(product_id):
     product.name = data.get("name", product.name)
     product.price = data.get("price", product.price)
     product.description = data.get("description", product.description)
+    product.category = data.get("category", product.category)
 
     db.session.commit()
 
-    return jsonify({"message": "Product updated."}), 201
+    return jsonify({"message": "Product updated."}), 200
 
 @app.route("/delete_product/<int:product_id>", methods=["DELETE"])
 def delete_product(product_id):

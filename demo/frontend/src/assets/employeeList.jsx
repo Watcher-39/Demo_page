@@ -1,6 +1,6 @@
 import React from "react"
 
-const EmployeesList = ({ employees, updateEmployees, updateCallback }) => {
+const EmployeeList = ({ employees, updateEmployee, updateCallback }) => {
 
     const onDelete = async (id) => {
         try {
@@ -45,4 +45,4 @@ const EmployeesList = ({ employees, updateEmployees, updateCallback }) => {
     </div>
 }
 
-export default EmployeesList
+export default EmployeeList
