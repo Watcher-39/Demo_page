@@ -38,6 +38,7 @@ def update_admin(admin_id):
     data = request.json
     admin.name = data.get("name", admin.name)
     admin.password = data.get("password", admin.password)
+    admin.phone = data.get("phone", admin.phone)
 
     db.session.commit()
 
@@ -91,6 +92,7 @@ def update_employee(employee_id):
     data = request.json
     employee.name = data.get("name", employee.name)
     employee.password = data.get("password", employee.password)
+    employee.phone = data.get("phone", employee.phone)
 
     db.session.commit()
 
