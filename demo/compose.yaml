@@ -26,6 +26,11 @@ services:
       db:
         condition: service_healthy
     restart: on-failure
+    develop:
+      watch:
+        - path: ./backend
+          action: rebuild
+
   
   db:
     image: postgres:15.3
