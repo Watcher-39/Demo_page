@@ -48,7 +48,7 @@ const AdminForm = ({ existingAdmin = {}, updateCallback = () => { } }) => {
                 type="string"
                 id="phone"
                 value={phone}
-                onChange={(e) => setName(e.target.value)}>
+                onChange={(e) => setPhone(e.target.value)}>
             </input>
         </div>
         <div>
